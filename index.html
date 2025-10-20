@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Myle Onboarding Form 🚀</title>
-  <link rel="icon" type="image/png" href="https://i.ibb.co/27S5hrzd/favicon.png" />
+  <title>MYLE Onboarding Form 🚀</title>
+  <link rel="icon" type="image/png" href="https://i.ibb.co/27S5hrz/favicon.png" />
 
   <!-- ✅ Styling -->
   <style>
@@ -19,12 +19,56 @@
       -webkit-overflow-scrolling: touch;
     }
 
+    /* ✅ Loader container */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100dvh;
+      background: #0e0e14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      flex-direction: column;
+      color: #f5f5f5;
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* ✅ Loader animation (rotating circle) */
+    .spinner {
+      width: 42px;
+      height: 42px;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      border-top-color: #f1c40f;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 12px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* ✅ Fade-out animation */
+    .fade-out {
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+    }
+
+    /* ✅ iFrame setup */
     body, iframe {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100dvh; /* Dynamic mobile viewport height */
+      height: 100dvh;
       border: none;
       margin: 0;
       padding: 0;
@@ -35,6 +79,7 @@
     iframe {
       overflow: hidden;
       z-index: 2;
+      display: none;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -44,22 +89,42 @@
 </head>
 
 <body>
+  <!-- ✅ Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Loading your onboarding form...</p>
+  </div>
+
   <!-- ✅ Zoho Form Embed -->
   <iframe
     id="zohoFormFrame"
-    title="Myle Onboarding Form 🚀"
+    title="MYLE Onboarding Form 🚀"
     sandbox="allow-scripts allow-forms allow-same-origin"
     referrerpolicy="no-referrer-when-downgrade"
+    src=""
   ></iframe>
 
   <!-- ✅ JavaScript -->
   <script>
-    const baseURL = "https://forms.mylecommunity.in/gurveer1174gm1/form/FreeTrialRequest/formperma/YPr7OiaJZjP2DJBDT5A-qcO6icZwzj2npdUbYDJRDv8";
-
-    // --- Load form into iframe
+    const formURL = "https://forms.mylecommunity.in/gurveer1174gm1/form/FreeTrialRequest/formperma/YPr7OiaJZjP2DJBDT5A-qcO6icZwzj2npdUbYDJRDv8";
     const iframe = document.getElementById('zohoFormFrame');
-    iframe.src = formURL;
-    }, 1000);
+    const loader = document.getElementById('loader');
+
+    // Load form after short delay
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        iframe.src = formURL;
+      }, 400); // smoother feel
+    });
+
+    // When form loads, hide loader
+    iframe.addEventListener('load', () => {
+      loader.classList.add('fade-out');
+      setTimeout(() => {
+        loader.style.display = 'none';
+        iframe.style.display = 'block';
+      }, 600);
+    });
   </script>
 </body>
 </html>
