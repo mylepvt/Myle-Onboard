@@ -3,52 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Seat Booking — Myle Community 🚀</title>
+  <title>Seat Booking | Myle Community 🚀</title>
   <link rel="icon" type="image/png" href="https://i.ibb.co/27S5hrzd/favicon.png" />
 
   <style>
     :root {
       --bg: #0e0e14;
-      --text: #ffffff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
     }
 
     html, body {
+      margin: 0;
+      padding: 0;
       width: 100%;
       height: 100%;
       background: var(--bg);
-      font-family: 'Poppins', sans-serif;
       overflow: hidden;
       overscroll-behavior: none;
-    }
-
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: env(safe-area-inset-top) env(safe-area-inset-right)
-               env(safe-area-inset-bottom) env(safe-area-inset-left);
+      -webkit-tap-highlight-color: transparent;
     }
 
     iframe {
       width: 100%;
-      height: 100dvh; /* Handles all mobile screen heights correctly */
+      height: 100dvh; /* Handles all modern mobile screen heights */
       border: none;
       background: var(--bg);
       display: block;
     }
 
+    /* Fallback message for users without JS */
     .fallback {
-      color: var(--text);
+      color: #fff;
+      background: var(--bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       text-align: center;
-      font-size: 16px;
+      height: 100vh;
       font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      padding: 20px;
     }
 
     .fallback a {
@@ -61,17 +54,16 @@
 
 <body>
   <iframe
-    id="zohoFormFrame"
+    src="https://forms.mylecommunity.in/myle/form/FreeTrialRequest/formperma/YPr7OiaJZjP2DJBDT5A-qcO6icZwzj2npdUbYDJRDv8"
     title="MYLE Seat Holding Form"
     sandbox="allow-same-origin allow-scripts allow-forms allow-popups"
     referrerpolicy="no-referrer"
-    src="https://forms.mylecommunity.in/myle/form/FreeTrialRequest/formperma/YPr7OiaJZjP2DJBDT5A-qcO6icZwzj2npdUbYDJRDv8"
   ></iframe>
 
   <noscript>
     <div class="fallback">
       Please enable JavaScript to view this form.<br>
-      Or <a href="https://forms.mylecommunity.in/myle/form/FreeTrialRequest/formperma/YPr7OiaJZjP2DJBDT5A-qcO6icZwzj2npdUbYDJRDv8" target="_blank">click here</a> to open it directly.
+      Or <a href="https://forms.mylecommunity.in/myle/form/FreeTrialRequest/formperma/YPr7OiaJZjP2DJBDT5A-qcO6icZwzj2npdUbYDJRDv8" target="_blank">tap here</a> to open it directly.
     </div>
   </noscript>
 </body>
